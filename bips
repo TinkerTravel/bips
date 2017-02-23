@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+
+function prepare {
+  if [ -e prepare.make ]; then
+    make -f prepare.make "$1"
+  fi
+}
+
+function prepare_all {
+  for dep in bower_components/purescript-*(N); do
+    (
+      cd "$dep"
+      prepare "$1"
+    )
+  done
+
+  prepare "$1"
+}
+
+function run_pulp {
+  pulp_I="$(perl -e 'print(join(":", @ARGV));' gen bower_components/purescript-*/gen(N))"
+  pulp "$1" -I "$pulp_I"
+}
+
+case "$1" in
+  clean)
+    prepare_all clean
+    ;;
+  build)
+    prepare_all all || exit $?
+    run_pulp build
+    ;;
+  test)
+    prepare_all all || exit $?
+    run_pulp test
+    ;;
+  *)
+    echo "Usage: $1 (build|clean|test)" >> /dev/stderr
+    exit 1
+esac
