@@ -9,8 +9,8 @@ function prepare {
 function prepare_all {
   for dep in bower_components/purescript-*(N); do
     (
-      cd "$dep"
-      prepare "$1"
+      cd "$dep" || return $?
+      prepare "$1" || return $?
     )
   done
 
