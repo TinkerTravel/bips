@@ -18,7 +18,7 @@ function prepare_all {
 }
 
 function run_pulp {
-  pulp_I="$(perl -e 'print(join(":", @ARGV));' gen bower_components/purescript-*/gen(N))"
+  pulp_I="$(perl -e 'print(join(":", @ARGV));' gen(N) bower_components/purescript-*/gen(N))"
   pulp "$1" -I "$pulp_I"
 }
 
