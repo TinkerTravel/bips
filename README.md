@@ -1,6 +1,6 @@
 # Build It PureScript
 
-bips is a PureScript build tool that wraps Pulp.
+Bips is a PureScript build tool that wraps Pulp.
 
 Running `bips build` or `bips test` will:
 
@@ -9,5 +9,5 @@ Running `bips build` or `bips test` will:
  2. Invoke `pulp build` or `pulp test`, respectively.
 
 The `all` tasks in the `prepare.make` files should put PureScript source files
-in a directory called `gen`. bips will pass these `gen` directories to Pulp
+in a directory called `gen`. Bips will pass these `gen` directories to Pulp
 using the Pulp `-I` option.
