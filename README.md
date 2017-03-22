@@ -11,3 +11,6 @@ Running `bips build` or `bips test` will:
 The `all` tasks in the `prepare.make` files should put PureScript source files
 in a directory called `gen`. Bips will pass these `gen` directories to Pulp
 using the Pulp `-I` option.
+
+This allows you to generate source files without adding them to your version
+control system.
