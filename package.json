@@ -1,7 +1,14 @@
 {
   "name": "bips",
-  "version": "0.0.1",
+  "description": "PureScript build tool",
+  "keywords": ["purescript", "pulp", "build"],
+  "license": "BSD-3-Clause",
+  "version": "1.1.0",
   "bin": {
     "bips": "bips"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TinkerTravel/bips.git"
   }
 }
