@@ -38,7 +38,11 @@ case "$1" in
     prepare_all all || exit $?
     run_pulp "$@"
     ;;
+  browserify)
+    prepare_all all || exit $?
+    run_pulp "$@"
+    ;;
   *)
-    echo "Usage: $1 (build|clean|test)" >> /dev/stderr
+    echo "Usage: $1 (browserify|build|clean|test)" >> /dev/stderr
     exit 1
 esac
